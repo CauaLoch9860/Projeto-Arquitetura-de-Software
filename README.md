@@ -1,4 +1,4 @@
-## Projeto-Arquitetura-de-Software
+# Projeto-Arquitetura-de-Software
 Documento de Requisitos do Sistema
 
 1. Propósito do Sistema
@@ -16,8 +16,8 @@ Outros microsserviços que utilizam a API para validar informações ou realizar
 Autenticação: Fornece validação de usuários.
 Estoque e Pagamentos: Dependem dos dados transacionais do sistema de pagamentos para integração.
 
-##3. Requisitos Funcionais
-#3.1. Operações sobre Usuários
+3. Requisitos Funcionais
+3.1. Operações sobre Usuários
 Listar Usuários
 
 O sistema deve permitir a recuperação de todos os usuários cadastrados.
@@ -52,7 +52,7 @@ O sistema deve permitir a exclusão de um usuário pelo ID.
 Endpoint: DELETE /api/Usuarios/{id}.
 Deve retornar uma mensagem de erro caso o ID do usuário não seja encontrado.
 
-#3.2. Operações de Pagamento
+3.2. Operações de Pagamento
 Criar Pagamento
 
 O sistema deve permitir a criação de um pagamento associado a um usuário.
