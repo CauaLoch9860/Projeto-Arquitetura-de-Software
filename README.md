@@ -1,4 +1,4 @@
-*Projeto - Arquitetura de Software
+***Projeto - Arquitetura de Software***
 Documento de Requisitos do Sistema
 1. Propósito do Sistema
 O sistema gerencia pagamentos de usuários em uma aplicação baseada em microsserviços. Ele oferece funcionalidades de criação, consulta, atualização e exclusão de informações de pagamentos, além de verificar a existência de usuários no microsserviço de Autenticação. Esse sistema integra-se com outros microsserviços, como Estoque e Autenticação, para compor a funcionalidade geral da aplicação.
