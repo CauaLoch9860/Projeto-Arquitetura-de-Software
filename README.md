@@ -78,3 +78,56 @@ ID do pagamento.
 ID do usuário.
 Valor do pagamento.
 Data do pagamento.
+
+3.1. Operações sobre Produtos
+Cadastrar Produto
+
+O sistema deve permitir o cadastro de um novo produto associado a um usuário existente.
+Endpoint: POST /api/Produtos.
+Deve verificar a existência do usuário no microsserviço de Autenticação utilizando o UsuarioId antes de associar o produto.
+Dados necessários:
+Nome do produto.
+Quantidade.
+UsuarioId (ID do usuário proprietário do produto).
+Deve retornar erro caso o usuário não seja encontrado ou os dados do produto sejam inválidos.
+Consultar Produto por ID
+
+O sistema deve permitir a consulta de um produto específico com base no ID.
+Endpoint: GET /api/Produtos/{id}.
+Deve retornar uma mensagem de erro caso o produto não seja encontrado.
+Atualizar Produto
+
+O sistema deve permitir a atualização das informações de um produto existente.
+Endpoint: PUT /api/Produtos/{id}.
+Deve validar se o ID do produto existe antes de realizar a atualização.
+Dados que podem ser atualizados:
+Nome do produto.
+Quantidade.
+Excluir Produto
+
+O sistema deve permitir a exclusão de um produto pelo ID.
+Endpoint: DELETE /api/Produtos/{id}.
+Deve retornar uma mensagem de erro caso o produto não seja encontrado.
+
+
+3.2. Integração com o Microsserviço de Autenticação
+O sistema deve integrar-se ao microsserviço de Autenticação para verificar a existência de um usuário antes de associar um produto:
+Utiliza um cliente HTTP para consultar o endpoint GET /api/Usuarios/{UsuarioId}.
+Deve retornar erro caso a verificação falhe ou o usuário não exista.
+3.3. Persistência de Dados
+O sistema deve armazenar as informações dos produtos em um banco de dados SQLite, contendo os seguintes campos:
+ID (chave primária, gerado automaticamente).
+Nome.
+Quantidade.
+UsuarioId (ID do usuário associado ao produto, representando a relação entre Produto e Usuário).
+3.4. Disponibilidade e Gerenciamento
+O sistema deve incluir uma interface Swagger para documentar e testar os endpoints da API.
+Mensagens claras devem ser retornadas em caso de erros, como:
+Dados inválidos ou nulos enviados no corpo da requisição.
+Produto ou usuário não encontrado ao consultar, atualizar ou excluir.
+3.5. Validação e Consistência
+O sistema deve validar a consistência dos dados antes de salvar ou atualizar registros, como:
+Quantidade de produtos não pode ser negativa.
+O nome do produto deve ser informado e não pode ser vazio.
+3.3. Integração com Outros Microsserviços
+O sistema deve estar disponível para consultas HTTP realizadas por outros microsserviços, especialmente para validação de IDs de usuários.
